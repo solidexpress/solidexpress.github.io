@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>SolidExpress — Open parametric solid modeling</title>
-<meta name="description" content="Open-source parametric solid modeling on OCCT and Godot."/>
+<title>SolidExpress — Parametric CAD that is yours</title>
+<meta name="description" content="Open parametric solid modeling: sketch, extrude, revolve, loft, and sweep — with STEP and STL interchange. Built with love by the Express Consortium."/>
 <link rel="icon" href="assets/logo.png"/>
 <style>
 :root{--bg:#0f1419;--panel:#121a26;--text:#dde2ea;--muted:#8b9cb3;--accent:#6ab0f3;--accent2:#4fd1c5;--border:#243044}
@@ -15,53 +15,185 @@ header img{width:96px;height:96px}h1{font-size:2.25rem;margin:.75rem 0 .25rem}
 .btn-primary{background:var(--accent);color:#0a1020}.btn-secondary{border:1px solid var(--border);color:var(--text)}
 main{max-width:1100px;margin:0 auto;padding:2rem 1.5rem 4rem}section{margin-bottom:3rem}
 h2{font-size:1.5rem;border-left:4px solid var(--accent);padding-left:.75rem}
-.pill{background:#1a2838;color:var(--accent2);padding:.2rem .6rem;border-radius:999px;font-size:.85rem}
+.pill{background:#1a2838;color:var(--accent2);padding:.2rem .6rem;border-radius:999px;font-size:.85rem;display:inline-block}
+.lead{color:var(--muted);max-width:48rem}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem}
 .feature-card{background:var(--panel);border:1px solid var(--border);border-radius:12px;overflow:hidden}
 .feature-card img{width:100%;aspect-ratio:16/10;object-fit:cover;background:#000;display:block}
 .feature-card h3{margin:.75rem 1rem .25rem;font-size:1.05rem}.feature-card p{margin:0 1rem 1rem;color:var(--muted);font-size:.95rem}
-ul.roadmap{padding-left:1.25rem}@media(min-width:768px){ul.roadmap{columns:2;column-gap:2rem}}
-footer{text-align:center;color:var(--muted);padding:2rem;border-top:1px solid var(--border)}
+.two-col{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:1.25rem 1.35rem}
+.panel h3{margin:0 0 .5rem;font-size:1.1rem}.panel ul{margin:.5rem 0 0;padding-left:1.2rem;color:var(--muted)}
+.panel li{margin:.35rem 0}
+.roadmap{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem;margin-top:1.25rem}
+.roadmap article{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.3rem}
+.roadmap h3{margin:0 0 .4rem;font-size:1.05rem}
+.roadmap p{margin:0;color:var(--muted);font-size:.95rem}
+.roadmap .enables{margin-top:.65rem;padding-top:.65rem;border-top:1px solid var(--border);color:var(--accent2);font-size:.9rem}
+footer{text-align:center;color:var(--muted);padding:2rem;border-top:1px solid var(--border);line-height:1.7}
 </style></head>
 <body>
-<header><img src="assets/logo.png" alt="SolidExpress"/><h1>SolidExpress</h1>
-<p class="tagline">An excellent, open-source parametric solid modeling solution — real B-rep solids, a modern UI, and AI-ready document context.</p>
+<header>
+<img src="assets/logo.png" alt="SolidExpress"/>
+<h1>SolidExpress</h1>
+<p class="tagline">Parametric solid modeling you can own — sketch, feature, and ship geometry without a vendor lock on your tools or your files.</p>
 <div class="cta">
-<a class="btn btn-primary" href="https://github.com/solidexpress/solidexpress">Download source</a>
-<a class="btn btn-secondary" href="https://github.com/solidexpress/solidexpress#build--run">Build &amp; run</a>
-</div></header>
+<a class="btn btn-primary" href="https://github.com/solidexpress/solidexpress">Get the software</a>
+<a class="btn btn-secondary" href="build.html">Build &amp; run</a>
+</div>
+</header>
 <main>
-<section><h2>Intent</h2>
-<p>SolidExpress aims to be a capable, approachable CAD you can study and extend — OCCT for B-rep solids, Godot for UI, PlaneGCS for sketch constraints. Export AI Context so assistants understand your parametric model.</p>
-<p><strong>Today:</strong> source-only from GitHub (<code>make build</code>, <code>make run</code>). <span class="pill">Ready-to-run distributions coming soon</span></p></section>
-<section><h2>Features in action</h2><p style="color:var(--muted)">End frames from UI films (<code>make movies</code>).</p><div class="grid">
-    <article class="feature-card"><img src="assets/screenshots/path_merge_sweep.png" alt="Merge sketches → path → sweep solid" loading="lazy" /><h3>Merge sketches → path → sweep solid</h3><p>Merge sketch rails into a path, then sweep a profile into a solid.</p></article>
-    <article class="feature-card"><img src="assets/screenshots/loft_guide_rail.png" alt="Loft profiles with an open guide rail" loading="lazy" /><h3>Loft profiles with an open guide rail</h3><p>Loft profiles along an open guide rail.</p></article>
-    <article class="feature-card"><img src="assets/screenshots/extrude_cylinder.png" alt="Circle profile + dim + extrude" loading="lazy" /><h3>Circle profile + dim + extrude</h3><p>Dimension a circle sketch and extrude a parametric cylinder.</p></article>
-    <article class="feature-card"><img src="assets/screenshots/revolve_washer.png" alt="Revolve washer profile 360°" loading="lazy" /><h3>Revolve washer profile 360°</h3><p>Revolve a washer profile into a solid of revolution.</p></article>
-    <article class="feature-card"><img src="assets/screenshots/sketch_tools.png" alt="Sketch tools: block, spline, and extend" loading="lazy" /><h3>Sketch tools: block, spline, and extend</h3><p>Block, spline, extend, and visual sketch tools.</p></article>
-    <article class="feature-card"><img src="assets/screenshots/sketch_edit_in_out.png" alt="Exit sketch pad and reopen to edit" loading="lazy" /><h3>Exit sketch pad and reopen to edit</h3><p>Exit and reopen sketch pads for parametric edits.</p></article>
-</div></section>
-<section><h2>Core capabilities</h2><ul>
-<li>Extrude, revolve, loft, sweep; sketch tools and constraints</li>
-<li>Orbit/pan/zoom, sections, display modes</li>
-<li>Native <code>.sxp</code> with feature tree and entity cards</li>
-<li>UI films as visual regression and tutorials</li></ul></section>
-<section><h2>Roadmap</h2><p style="color:var(--muted)">From plan docs — not all shipped yet.</p><ul class="roadmap">
-      <li>[x] 2.2 SolverBackend seam (`sx/solver.hpp`) + PlaneGCS backend (DogLeg, diagnostics: dofs/conflicting/redundant) — AI-first backend plugs in here later</li>
-      <li>PlaneGCS builds as `libplanegcs.so` (LGPL dynamic-link compliance); not yet consumed by sxkernel (Phase 2)</li>
-      <li>**Approved dependencies:** OCCT (LGPL+exception), PlaneGCS (LGPL-2.1+), godot-cpp (MIT), Eigen (MPL-2.0), nlohmann/json (MIT), spdlog (MIT), Catch2 (BSL-1.0), libzip (BSD), Clipper2 (BSL-1.0), Embree if needed later (Apache-2.0).</li>
-      <li>**Golden models**: `tests/golden/*.sxp` + expected-values JSON; every phase adds its exit-criteria model here. Goldens are regenerated only by an explicit, reviewed task.</li>
-      <li>Happy-path first (per instruction); edge-case tests accumulate opportunistically but never block a phase gate.</li>
-      <li>Assembly: multi-body assemblies, explode, interference</li>
-      <li>Drawings: PDF/DXF, GD&amp;T, BOM balloons, sheet-metal flats on drawings</li>
-      <li>Interop: AP242/XCAF, 3MF/glTF, mesh healing (DWG deferred)</li>
-      <li>Surfacing, sheet metal, frames, weld beads</li>
-      <li>PMI/MBD, ray-trace stills, turntable video, kinematic motion</li>
-      <li>JSON-RPC/CLI, selection queries, AI IntentConstraint solver, plugins</li>
-      <li>Shift-for-square rectangles; outer boundary union of closed profiles on one plane</li>
-      <li>Friendliness phases 21–27; optional Whisper STT in voice builds</li>
-      <li>Ready-to-run Linux/macOS/Windows distributions</li></ul></section>
+
+<section>
+<h2>It is your software</h2>
+<p class="lead">SolidExpress is open-source CAD. Study it, change it, redistribute it, and keep your models in formats the rest of the industry already speaks. No subscription gate between you and the kernel. No proprietary dead-end for the parts you design.</p>
+<p><span class="pill">Source available today</span> &nbsp; Ready-to-run packages are on the way.</p>
+</section>
+
+<section>
+<h2>What you can make today</h2>
+<p class="lead">The everyday solid-modeling loop is already here: constrained sketches, classic features, direct edits, and a parametric history you can reopen and change.</p>
+<div class="grid">
+<article class="feature-card">
+<img src="assets/screenshots/extrude_cylinder.png" alt="Dimensioned circle extruded into a cylinder" loading="lazy"/>
+<h3>Sketch → dimension → extrude</h3>
+<p>Draw closed profiles, drive them with dimensions, and extrude solid bodies — the core path from idea to part.</p>
+</article>
+<article class="feature-card">
+<img src="assets/screenshots/revolve_washer.png" alt="Washer profile revolved into a solid" loading="lazy"/>
+<h3>Revolve profiles into solids</h3>
+<p>Spin a sketch about an axis for washers, flanges, and other parts of revolution.</p>
+</article>
+<article class="feature-card">
+<img src="assets/screenshots/path_merge_sweep.png" alt="Profile swept along a path" loading="lazy"/>
+<h3>Sweep along a path</h3>
+<p>Combine sketch rails into a path, then sweep a profile into tubing, rails, and guided solids.</p>
+</article>
+<article class="feature-card">
+<img src="assets/screenshots/loft_guide_rail.png" alt="Loft between profiles with a guide rail" loading="lazy"/>
+<h3>Loft with guide rails</h3>
+<p>Blend between profiles and steer the transition with an open guide rail.</p>
+</article>
+<article class="feature-card">
+<img src="assets/screenshots/sketch_tools.png" alt="Sketch tools including spline and extend" loading="lazy"/>
+<h3>Full sketch toolkit</h3>
+<p>Lines, rectangles, circles, splines, trim, extend, construction geometry, and constraints — familiar drafting, not a toy canvas.</p>
+</article>
+<article class="feature-card">
+<img src="assets/screenshots/sketch_edit_in_out.png" alt="Reopening a sketch for parametric edits" loading="lazy"/>
+<h3>Edit features later</h3>
+<p>Leave a sketch, come back, change dimensions or geometry — the solid updates with the history.</p>
+</article>
+</div>
+</section>
+
+<section>
+<h2>Beyond the first solid</h2>
+<div class="two-col">
+<div class="panel">
+<h3>Finish and combine</h3>
+<ul>
+<li>Fillet and chamfer edges</li>
+<li>Boolean unite, subtract, and intersect</li>
+<li>Push / pull planar faces for quick direct edits</li>
+<li>Mirror, linear and circular patterns, offset</li>
+</ul>
+</div>
+<div class="panel">
+<h3>Work like a modeler</h3>
+<ul>
+<li>Orbit, pan, and zoom with mouse, trackpad, or touch</li>
+<li>Section views and shaded / edged / wireframe display</li>
+<li>Variables and equations that drive dimensions</li>
+<li>Feature history with undo and redo</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section>
+<h2>Import &amp; export</h2>
+<p class="lead">Bring geometry in, send geometry out. Drag and drop onto the viewport, or use the File menu. Your work stays movable across the tools you already use.</p>
+<div class="two-col">
+<div class="panel">
+<h3>Bring in</h3>
+<ul>
+<li><strong>STEP</strong> (.step / .stp) — industry B-rep exchange</li>
+<li><strong>STL</strong> — mesh import for reference or further work</li>
+<li><strong>SVG</strong> — drop 2D artwork onto a face as sketch geometry</li>
+<li><strong>Native documents</strong> — open and save parametric models with full history</li>
+</ul>
+</div>
+<div class="panel">
+<h3>Send out</h3>
+<ul>
+<li><strong>STEP</strong> — hand off precise solids to CAM, simulation, or other CAD</li>
+<li><strong>STL</strong> — mesh for 3D printing and visualization</li>
+<li><strong>SVG drawings</strong> — lightweight 2D views of your model</li>
+<li><strong>AI context</strong> — markdown export of the document so assistants can reason about your design</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section>
+<h2>Roadmap</h2>
+<p class="lead">What is coming next, and what it unlocks for you — not a laundry list of internals.</p>
+<div class="roadmap">
+<article>
+<h3>Ready-to-run builds</h3>
+<p>Installer-ready packages for Linux, macOS, and Windows so you can open SolidExpress without compiling from source.</p>
+<p class="enables">Enables: try it in minutes, share it with a shop or classroom, and keep a known-good desktop release on every machine.</p>
+</article>
+<article>
+<h3>Assemblies &amp; mates</h3>
+<p>Multi-body products with mate connectors, joints, explode views, and interference checks.</p>
+<p class="enables">Enables: mechanisms and product structures — not just single parts — with motion you can drag and clearances you can verify before you cut metal.</p>
+</article>
+<article>
+<h3>Production drawings</h3>
+<p>Associative drawing sheets with dimensions, GD&amp;T, BOM balloons, and PDF / DXF export.</p>
+<p class="enables">Enables: shop-floor prints and supplier packages that update when the model changes, without redrawing every revision by hand.</p>
+</article>
+<article>
+<h3>Richer interchange</h3>
+<p>Fuller STEP AP242 exchange (colors, names, assembly structure), plus 3MF / glTF meshes and DXF into sketches.</p>
+<p class="enables">Enables: cleaner handoffs to CAM, visualization, and other CAD — and sketching from existing 2D data instead of retracing it.</p>
+</article>
+<article>
+<h3>Sheet metal, frames &amp; surfacing</h3>
+<p>Flanges and flat patterns, structural frames with cut lists, cosmetic welds, and surface modeling tools.</p>
+<p class="enables">Enables: enclosures, weldments, and freeform shapes that leave the desk ready for laser, brake, and fabrication — not only prismatic solids.</p>
+</article>
+<article>
+<h3>Model-based definition (MBD)</h3>
+<p>3D product manufacturing information on the model itself, exportable with semantic STEP PMI.</p>
+<p class="enables">Enables: inspection and manufacturing to read tolerances from the solid — fewer ambiguous 2D callouts, one source of truth on the part.</p>
+</article>
+<article>
+<h3>Presentation &amp; motion</h3>
+<p>Still renders, turntable / explode video, and kinematic motion studies.</p>
+<p class="enables">Enables: reviews, marketing stills, and mechanism proof-outs you can share without opening the CAD session.</p>
+</article>
+<article>
+<h3>Automation &amp; extensions</h3>
+<p>Scripted document control, batch CLI export, and a plugin surface for custom commands.</p>
+<p class="enables">Enables: regenerate families of parts overnight, wire SolidExpress into your pipeline, and grow the tool without waiting on the core team.</p>
+</article>
+</div>
+</section>
+
+<section>
+<h2>Open by design</h2>
+<p class="lead">SolidExpress is not a black box with a logo on it. The modeling software, the interchange paths, and the document story are meant to stay under your control — whether you are a solo maker, a shop floor, or a team that refuses to rent its toolchain forever.</p>
+<p>Fork it. Audit it. Teach with it. Ship products with it. It remains <em>your</em> software.</p>
+</section>
+
 </main>
-<footer>SolidExpress · <a href="https://github.com/solidexpress/solidexpress">github.com/solidexpress/solidexpress</a></footer>
-</body></html>
+<footer>
+Built with ❤️ by the Express Consortium<br/>
+<a href="index.html">Home</a> · <a href="build.html">Build &amp; run</a> ·
+<a href="https://github.com/solidexpress/solidexpress">github.com/solidexpress/solidexpress</a>
+</footer>
+</body>
+</html>
