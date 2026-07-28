@@ -9,7 +9,7 @@
 :root{--bg:#0f1419;--panel:#121a26;--text:#dde2ea;--muted:#8b9cb3;--accent:#6ab0f3;--accent2:#4fd1c5;--border:#243044}
 body{margin:0;font-family:system-ui,sans-serif;background:linear-gradient(180deg,#0a0e14,var(--bg));color:var(--text);line-height:1.55}
 a{color:var(--accent)}
-nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.5rem;border-bottom:1px solid var(--border);max-width:1100px;margin:0 auto}
+nav{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;padding:0.75rem 1.5rem;border-bottom:1px solid var(--border);max-width:1100px;margin:0 auto}
 nav .brand{display:flex;align-items:center;gap:.65rem;color:var(--text);text-decoration:none;font-weight:600}
 nav .brand img{width:36px;height:36px}
 nav .links{display:flex;gap:1.25rem;flex-wrap:wrap;font-size:.95rem}
@@ -120,7 +120,7 @@ make run     # import project assets, then open the app</code></pre>
 <li>Import STEP or STL from the File menu, or drag a file onto the window</li>
 <li>Export STEP, STL, SVG drawings, or AI context when you need to hand work off</li>
 </ul>
-<p class="note">Verified how-tos live in the repo under <a href="https://github.com/solidexpress/solidexpress/tree/main/docs/howto"><code>docs/howto/</code></a> — place a box, stack parts, extrude profiles, cut holes, and more.</p>
+<p class="note">Verified how-tos live in the repo under <a href="https://github.com/solidexpress/solidexpress/tree/main/docs/howto"><code>docs/howto/</code></a> — place a box, stack parts, extrude profiles, cut holes, and more. Start with the <a href="https://github.com/solidexpress/solidexpress/blob/main/docs/howto/mounting-block.md">mounting block</a> (Box + Apply hole / <code>O</code>) — through-hole click comparison vs SolidWorks’ <a href="https://youtu.be/RKIEQVR-qJw"><em>needle-nose pliers</em> Cut Extrude</a> is in the <a href="https://github.com/solidexpress/solidexpress/blob/main/docs/survey/workflow-study-mounting-block.md">mounting-block study</a>; series gaps (revolute drag, midplane) are in the <a href="https://github.com/solidexpress/solidexpress/blob/main/docs/survey/workflow-study-needle-nose-pliers.md">pliers study</a>.</p>
 </section>
 
 <section>

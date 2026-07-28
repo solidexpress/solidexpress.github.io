@@ -8,15 +8,19 @@
 <style>
 :root{--bg:#0f1419;--panel:#121a26;--text:#dde2ea;--muted:#8b9cb3;--accent:#6ab0f3;--accent2:#4fd1c5;--border:#243044}
 body{margin:0;font-family:system-ui,sans-serif;background:linear-gradient(180deg,#0a0e14,var(--bg));color:var(--text);line-height:1.55}
-a{color:var(--accent)}header{text-align:center;padding:3rem 1.5rem 2rem;border-bottom:1px solid var(--border)}
-header img{width:96px;height:96px}h1{font-size:2.25rem;margin:.75rem 0 .25rem}
-.tagline{color:var(--muted);max-width:44rem;margin:0 auto}.cta{margin-top:1.5rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-.btn{padding:.65rem 1.25rem;border-radius:8px;font-weight:600;text-decoration:none;display:inline-block}
-.btn-primary{background:var(--accent);color:#0a1020}.btn-secondary{border:1px solid var(--border);color:var(--text)}
-main{max-width:1100px;margin:0 auto;padding:2rem 1.5rem 4rem}section{margin-bottom:3rem}
-h2{font-size:1.5rem;border-left:4px solid var(--accent);padding-left:.75rem}
+a{color:var(--accent)}
+nav{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;padding:0.75rem 1.5rem;border-bottom:1px solid var(--border);max-width:1100px;margin:0 auto}
+nav .brand{display:flex;align-items:center;gap:.65rem;color:var(--text);text-decoration:none;font-weight:600;font-size:1.05rem}
+nav .brand img{width:36px;height:36px}
+nav .links{display:flex;gap:1.25rem;flex-wrap:wrap;font-size:.95rem;align-items:center}
+main{max-width:1100px;margin:0 auto;padding:1.25rem 1.5rem 4rem}section{margin-bottom:3rem}
+h2{font-size:1.5rem;border-left:4px solid var(--accent);padding-left:.75rem;margin:0 0 .85rem}
 .pill{background:#1a2838;color:var(--accent2);padding:.2rem .6rem;border-radius:999px;font-size:.85rem;display:inline-block}
 .lead{color:var(--muted);max-width:48rem}
+.cta{margin-top:1rem;display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+.btn{padding:.65rem 1.25rem;border-radius:8px;font-weight:600;text-decoration:none;display:inline-block}
+.btn-primary{background:var(--accent);color:#0a1020}.btn-secondary{border:1px solid var(--border);color:var(--text)}
+.os-hint{color:var(--muted);font-size:.9rem;margin:0.35rem 0 0}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem}
 .feature-card{background:var(--panel);border:1px solid var(--border);border-radius:12px;overflow:hidden}
 .feature-card img,.feature-card video{width:100%;aspect-ratio:16/10;object-fit:cover;background:#000;display:block}
@@ -33,33 +37,28 @@ h2{font-size:1.5rem;border-left:4px solid var(--accent);padding-left:.75rem}
 footer{text-align:center;color:var(--muted);padding:2rem;border-top:1px solid var(--border);line-height:1.7}
 </style></head>
 <body>
-<header>
-<img src="assets/logo.png" alt="SolidExpress"/>
-<h1>SolidExpress</h1>
-<p class="tagline">Parametric solid modeling you can own — sketch, feature, and ship geometry without a vendor lock on your tools or your files.</p>
-<div class="cta">
-<a class="btn btn-primary" href="https://github.com/solidexpress/solidexpress">Get the software</a>
-<a class="btn btn-secondary" href="build.html">Build &amp; run</a>
+<nav>
+<a class="brand" href="index.html"><img src="assets/logo.png" alt=""/> SolidExpress</a>
+<div class="links">
+<a href="#download">Download</a>
+<a href="build.html">Build &amp; run</a>
+<a href="support.html">Support</a>
+<a href="privacy.html">Privacy</a>
+<a href="https://github.com/solidexpress/solidexpress">Source</a>
 </div>
-</header>
+</nav>
 <main>
 <section id="download">
 <h2>Download v0.0.1</h2>
 <p class="lead">Ready-to-run builds for Linux, Windows, and macOS. Unsigned on Windows/macOS for early releases — Gatekeeper/SmartScreen may prompt; verify SHA256 checksums on the release page.</p>
-<div class="cta">
-<a class="btn btn-primary" href="https://github.com/solidexpress/solidexpress/releases/download/v0.0.1/SolidExpress-0.0.1-linux-x86_64.tar.gz">Linux (.tar.gz)</a>
-<a class="btn btn-primary" href="https://github.com/solidexpress/solidexpress/releases/download/v0.0.1/SolidExpress-0.0.1-windows-x86_64.zip">Windows (.zip)</a>
-<a class="btn btn-primary" href="https://github.com/solidexpress/solidexpress/releases/download/v0.0.1/SolidExpress-0.0.1-macos.zip">macOS (.zip)</a>
+<div class="cta" id="download-cta">
+<a class="btn btn-primary" data-os="linux" href="https://github.com/solidexpress/solidexpress/releases/download/v0.0.1/SolidExpress-0.0.1-linux-x86_64.tar.gz">Linux (.tar.gz)</a>
+<a class="btn btn-primary" data-os="windows" href="https://github.com/solidexpress/solidexpress/releases/download/v0.0.1/SolidExpress-0.0.1-windows-x86_64.zip">Windows (.zip)</a>
+<a class="btn btn-primary" data-os="macos" href="https://github.com/solidexpress/solidexpress/releases/download/v0.0.1/SolidExpress-0.0.1-macos.zip">macOS (.zip)</a>
 <a class="btn btn-secondary" href="https://github.com/solidexpress/solidexpress/releases/tag/v0.0.1">All assets &amp; checksums</a>
 <a class="btn btn-secondary" href="https://github.com/solidexpress/solidexpress">Source</a>
 </div>
-</section>
-
-
-<section>
-<h2>It is your software</h2>
-<p class="lead">SolidExpress is open-source CAD. Study it, change it, redistribute it, and keep your models in formats the rest of the industry already speaks. No subscription gate between you and the kernel. No proprietary dead-end for the parts you design.</p>
-<p><span class="pill">v0.0.1 binaries available</span></p>
+<p class="os-hint" id="os-hint" hidden></p>
 </section>
 
 <section>
@@ -116,6 +115,21 @@ footer{text-align:center;color:var(--muted);padding:2rem;border-top:1px solid va
 <p>Leave a sketch, come back, change dimensions or geometry — the solid updates with the history.</p>
 </article>
 </div>
+<div class="panel" style="margin-top:1.5rem">
+<h3 style="margin-top:0">Fewer clicks than SolidWorks on a beginner part</h3>
+<p class="lead" style="margin:0 0 .75rem">We timed a centered through-hole (the same Extruded Cut pattern as the pin hole) against SolidWorks’ official <a href="https://youtu.be/RKIEQVR-qJw">Creating a Cut Extrude</a> lesson from the <em>Model a pair of needle-nose pliers</em> training series (Nick Ler, SolidWorks training team).</p>
+<ul>
+<li><strong>SolidWorks</strong> — ~32 gestures for the comparable brick + through-hole path (sketch → extrude → sketch circle → Extruded Cut Through All)</li>
+<li><strong>SolidExpress</strong> — ≤10 clicks with Box + Apply hole, or ≤8 with the <code>O</code> shortcut (Depth 0 = through)</li>
+</ul>
+<p style="margin:.75rem 0 0;color:var(--muted);font-size:.95rem">Through-hole click audit: <a href="https://github.com/solidexpress/solidexpress/blob/main/docs/survey/workflow-study-mounting-block.md">mounting-block study</a> · full series gaps (mates, revolute drag, midplane): <a href="https://github.com/solidexpress/solidexpress/blob/main/docs/survey/workflow-study-needle-nose-pliers.md">needle-nose pliers study</a> · recipe: <a href="https://github.com/solidexpress/solidexpress/blob/main/docs/howto/mounting-block.md">mounting-block howto</a></p>
+</div>
+</section>
+
+<section>
+<h2>It is your software</h2>
+<p class="lead">SolidExpress is open-source CAD. Study it, change it, redistribute it, and keep your models in formats the rest of the industry already speaks. No subscription gate between you and the kernel. No proprietary dead-end for the parts you design.</p>
+<p><span class="pill">v0.0.1 binaries available</span></p>
 </section>
 
 <section>
@@ -227,5 +241,32 @@ Built with ❤️ by the Express Consortium<br/>
 <a href="support.html">Support</a> · <a href="privacy.html">Privacy</a> ·
 <a href="https://github.com/solidexpress/solidexpress">github.com/solidexpress/solidexpress</a>
 </footer>
+<script>
+(function () {
+  var labels = { linux: "Linux", windows: "Windows", macos: "macOS" };
+  function detectOS() {
+    var ua = navigator.userAgent || "";
+    var platform = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || "";
+    if (/Win/i.test(platform) || /Windows/i.test(ua)) return "windows";
+    if (/Mac/i.test(platform) || /Mac OS|Macintosh/i.test(ua)) return "macos";
+    if (/Linux/i.test(platform) || /Linux/i.test(ua) || /X11/i.test(ua)) return "linux";
+    return null;
+  }
+  var os = detectOS();
+  var cta = document.getElementById("download-cta");
+  var hint = document.getElementById("os-hint");
+  if (!cta) return;
+  var buttons = Array.prototype.slice.call(cta.querySelectorAll("[data-os]"));
+  buttons.forEach(function (btn) {
+    var match = os && btn.getAttribute("data-os") === os;
+    btn.className = "btn " + (match ? "btn-primary" : "btn-secondary");
+    if (match) cta.insertBefore(btn, cta.firstChild);
+  });
+  if (os && hint) {
+    hint.hidden = false;
+    hint.textContent = "Detected " + labels[os] + " — primary download highlighted.";
+  }
+})();
+</script>
 </body>
 </html>
