@@ -1,0 +1,145 @@
+WEBVTT
+
+1
+00:00:01.983 --> 00:00:02.550
+Sketch a large circle on the ground plane
+
+2
+00:00:02.550 --> 00:00:03.517
+[Sketch]  Start sketch on picked face or ground
+
+3
+00:00:03.517 --> 00:00:04.583
+[Click]  Pick empty ground to start sketch
+
+4
+00:00:04.583 --> 00:00:05.533
+[C]  Circle tool — click center, then radius
+
+5
+00:00:05.533 --> 00:00:06.517
+[Click]  Circle — center
+
+6
+00:00:06.517 --> 00:00:07.533
+[Click]  Circle — radius
+
+7
+00:00:07.533 --> 00:00:08.550
+[Exit Sketch]  Commit sketch and show yellow pad
+
+8
+00:00:08.550 --> 00:00:09.150
+Place a box, then sketch a smaller circle on its top face
+
+9
+00:00:09.150 --> 00:00:10.117
+[Box]  Arm box — click ground to place
+
+10
+00:00:10.117 --> 00:00:11.167
+[Click]  Place box on ground
+
+11
+00:00:11.167 --> 00:00:12.183
+[Click]  Select face for sketch host
+
+12
+00:00:12.183 --> 00:00:13.233
+[Click]  Select face for sketch host
+
+13
+00:00:13.233 --> 00:00:14.267
+[Sketch]  Start sketch on picked face or ground
+
+14
+00:00:14.267 --> 00:00:15.217
+[C]  Circle tool — click center, then radius
+
+15
+00:00:15.217 --> 00:00:16.200
+[Click]  Circle — center
+
+16
+00:00:16.200 --> 00:00:17.217
+[Click]  Circle — radius
+
+17
+00:00:17.217 --> 00:00:18.233
+[Exit Sketch]  Commit sketch and show yellow pad
+
+18
+00:00:18.233 --> 00:00:18.850
+Sketch an open guide rail beside the profiles
+
+19
+00:00:18.850 --> 00:00:19.817
+[Sketch]  Start sketch on picked face or ground
+
+20
+00:00:19.817 --> 00:00:20.917
+[Click]  Pick empty ground to start sketch
+
+21
+00:00:20.917 --> 00:00:21.883
+[Sketch]  Start sketch on picked face or ground
+
+22
+00:00:21.883 --> 00:00:22.950
+[Click]  Pick empty ground to start sketch
+
+23
+00:00:22.950 --> 00:00:23.900
+[L]  Line tool — click points to chain; Done / Esc to finish
+
+24
+00:00:23.900 --> 00:00:24.883
+[Click]  Line — first point
+
+25
+00:00:24.883 --> 00:00:25.900
+[Click]  Line — second point
+
+26
+00:00:25.900 --> 00:00:26.867
+[Done]  End line chain
+
+27
+00:00:26.867 --> 00:00:27.883
+[Exit Sketch]  Commit sketch and show yellow pad
+
+28
+00:00:27.883 --> 00:00:28.450
+Hide the box, then Ctrl+click top, guide, and bottom pads
+
+29
+00:00:28.450 --> 00:00:29.467
+[Click]  Select solid
+
+30
+00:00:29.467 --> 00:00:30.533
+[Exit Sketch]  Commit sketch and show yellow pad
+
+31
+00:00:30.533 --> 00:00:31.583
+[Ctrl+Click]  Add sketch pad to selection
+
+32
+00:00:31.583 --> 00:00:32.633
+[Ctrl+Click]  Add sketch pad to selection
+
+33
+00:00:32.633 --> 00:00:33.633
+[Ctrl+Click]  Add sketch pad to selection
+
+34
+00:00:33.633 --> 00:00:34.250
+Loft smooth — open rail becomes a guide curve
+
+35
+00:00:34.250 --> 00:00:35.283
+[Loft Smooth]  Loft closed profiles (smooth surfaces)
+
+36
+00:00:35.283 --> 00:00:37.967
+Guided loft solid — 9718 mm³

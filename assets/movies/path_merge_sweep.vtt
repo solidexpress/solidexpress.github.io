@@ -1,0 +1,113 @@
+WEBVTT
+
+1
+00:00:01.583 --> 00:00:02.050
+Sketch the first open rail on the ground
+
+2
+00:00:02.050 --> 00:00:03.017
+Start sketch on picked face or ground
+
+3
+00:00:03.017 --> 00:00:04.083
+Pick empty ground to start sketch
+
+4
+00:00:04.083 --> 00:00:05.033
+Line tool — click start and end points
+
+5
+00:00:05.033 --> 00:00:06.017
+Line — first point
+
+6
+00:00:06.017 --> 00:00:07.033
+Line — second point
+
+7
+00:00:07.033 --> 00:00:08.050
+Commit sketch and show yellow pad
+
+8
+00:00:08.050 --> 00:00:08.517
+Sketch a second open leg that meets the rail end
+
+9
+00:00:08.517 --> 00:00:09.483
+Start sketch on picked face or ground
+
+10
+00:00:09.483 --> 00:00:10.550
+Pick empty ground to start sketch
+
+11
+00:00:10.550 --> 00:00:11.500
+Line tool — click start and end points
+
+12
+00:00:11.500 --> 00:00:12.483
+Line — first point
+
+13
+00:00:12.483 --> 00:00:13.500
+Line — second point
+
+14
+00:00:13.500 --> 00:00:14.517
+Commit sketch and show yellow pad
+
+15
+00:00:14.517 --> 00:00:14.983
+Ctrl+click both cyan pads, then Merge Join
+
+16
+00:00:14.983 --> 00:00:16.033
+Add sketch pad to selection
+
+17
+00:00:16.033 --> 00:00:17.067
+Add sketch pad to selection
+
+18
+00:00:17.067 --> 00:00:18.100
+Merge join — connect pad endpoints into a path
+
+19
+00:00:18.100 --> 00:00:18.567
+Sketch a circle profile, then Sweep along path
+
+20
+00:00:18.567 --> 00:00:19.533
+Start sketch on picked face or ground
+
+21
+00:00:19.533 --> 00:00:20.600
+Pick empty ground to start sketch
+
+22
+00:00:20.600 --> 00:00:21.550
+Circle tool — click center, then radius
+
+23
+00:00:21.550 --> 00:00:22.533
+Circle — center
+
+24
+00:00:22.533 --> 00:00:23.550
+Circle — radius
+
+25
+00:00:23.550 --> 00:00:24.617
+Commit sketch and show yellow pad
+
+26
+00:00:24.617 --> 00:00:25.650
+Add sketch pad to selection
+
+27
+00:00:25.650 --> 00:00:26.683
+Sweep profile along path
+
+28
+00:00:26.683 --> 00:00:28.967
+Solid path sweep — 377 mm³

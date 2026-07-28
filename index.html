@@ -19,7 +19,7 @@ h2{font-size:1.5rem;border-left:4px solid var(--accent);padding-left:.75rem}
 .lead{color:var(--muted);max-width:48rem}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem}
 .feature-card{background:var(--panel);border:1px solid var(--border);border-radius:12px;overflow:hidden}
-.feature-card img{width:100%;aspect-ratio:16/10;object-fit:cover;background:#000;display:block}
+.feature-card img,.feature-card video{width:100%;aspect-ratio:16/10;object-fit:cover;background:#000;display:block}
 .feature-card h3{margin:.75rem 1rem .25rem;font-size:1.05rem}.feature-card p{margin:0 1rem 1rem;color:var(--muted);font-size:.95rem}
 .two-col{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
 .panel{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:1.25rem 1.35rem}
@@ -67,32 +67,51 @@ footer{text-align:center;color:var(--muted);padding:2rem;border-top:1px solid va
 <p class="lead">The everyday solid-modeling loop is already here: constrained sketches, classic features, direct edits, and a parametric history you can reopen and change.</p>
 <div class="grid">
 <article class="feature-card">
-<img src="assets/screenshots/extrude_cylinder.png" alt="Dimensioned circle extruded into a cylinder" loading="lazy"/>
+<video poster="assets/screenshots/precision_plate.png" autoplay muted loop playsinline preload="metadata" aria-label="Plate with corner-snapped holes">
+<source src="assets/movies/precision_plate.webm" type="video/webm"/>
+</video>
+<h3>Place hole… inset from corners</h3>
+<p>Size a plate, then Place hole… near a corner — magnets snap and inset by an amount inferred from Ø, thickness, and material.</p>
+</article>
+<article class="feature-card">
+<video poster="assets/screenshots/extrude_cylinder.png" autoplay muted loop playsinline preload="metadata" aria-label="Dimensioned circle extruded into a cylinder">
+<source src="assets/movies/extrude_cylinder.webm" type="video/webm"/>
+</video>
 <h3>Sketch → dimension → extrude</h3>
 <p>Draw closed profiles, drive them with dimensions, and extrude solid bodies — the core path from idea to part.</p>
 </article>
 <article class="feature-card">
-<img src="assets/screenshots/revolve_washer.png" alt="Washer profile revolved into a solid" loading="lazy"/>
+<video poster="assets/screenshots/revolve_washer.png" autoplay muted loop playsinline preload="metadata" aria-label="Washer profile revolved into a solid">
+<source src="assets/movies/revolve_washer.webm" type="video/webm"/>
+</video>
 <h3>Revolve profiles into solids</h3>
 <p>Spin a sketch about an axis for washers, flanges, and other parts of revolution.</p>
 </article>
 <article class="feature-card">
-<img src="assets/screenshots/path_merge_sweep.png" alt="Profile swept along a path" loading="lazy"/>
+<video poster="assets/screenshots/path_merge_sweep.png" autoplay muted loop playsinline preload="metadata" aria-label="Profile swept along a path">
+<source src="assets/movies/path_merge_sweep.webm" type="video/webm"/>
+</video>
 <h3>Sweep along a path</h3>
-<p>Combine sketch rails into a path, then sweep a profile into tubing, rails, and guided solids.</p>
+<p>Combine sketch rails into a path, then sweep a profile into tubing and rails — or select profile + rail for a one-shot sweep.</p>
 </article>
 <article class="feature-card">
-<img src="assets/screenshots/loft_guide_rail.png" alt="Loft between profiles with a guide rail" loading="lazy"/>
+<video poster="assets/screenshots/loft_guide_rail.png" autoplay muted loop playsinline preload="metadata" aria-label="Loft between profiles with a guide rail">
+<source src="assets/movies/loft_guide_rail.webm" type="video/webm"/>
+</video>
 <h3>Loft with guide rails</h3>
 <p>Blend between profiles and steer the transition with an open guide rail.</p>
 </article>
 <article class="feature-card">
-<img src="assets/screenshots/sketch_tools.png" alt="Sketch tools including spline and extend" loading="lazy"/>
+<video poster="assets/screenshots/sketch_tools.png" autoplay muted loop playsinline preload="metadata" aria-label="Sketch tools including spline and extend">
+<source src="assets/movies/sketch_tools.webm" type="video/webm"/>
+</video>
 <h3>Full sketch toolkit</h3>
 <p>Lines, rectangles, circles, splines, trim, extend, construction geometry, and constraints — familiar drafting, not a toy canvas.</p>
 </article>
 <article class="feature-card">
-<img src="assets/screenshots/sketch_edit_in_out.png" alt="Reopening a sketch for parametric edits" loading="lazy"/>
+<video poster="assets/screenshots/sketch_edit_in_out.png" autoplay muted loop playsinline preload="metadata" aria-label="Reopening a sketch for parametric edits">
+<source src="assets/movies/sketch_edit_in_out.webm" type="video/webm"/>
+</video>
 <h3>Edit features later</h3>
 <p>Leave a sketch, come back, change dimensions or geometry — the solid updates with the history.</p>
 </article>
@@ -205,6 +224,7 @@ footer{text-align:center;color:var(--muted);padding:2rem;border-top:1px solid va
 <footer>
 Built with ❤️ by the Express Consortium<br/>
 <a href="index.html">Home</a> · <a href="build.html">Build &amp; run</a> ·
+<a href="support.html">Support</a> · <a href="privacy.html">Privacy</a> ·
 <a href="https://github.com/solidexpress/solidexpress">github.com/solidexpress/solidexpress</a>
 </footer>
 </body>
