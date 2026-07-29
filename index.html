@@ -23,8 +23,22 @@ h2{font-size:1.5rem;border-left:4px solid var(--accent);padding-left:.75rem;marg
 .os-hint{color:var(--muted);font-size:.9rem;margin:0.35rem 0 0}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem}
 .feature-card{background:var(--panel);border:1px solid var(--border);border-radius:12px;overflow:hidden}
-.feature-card img,.feature-card video{width:100%;aspect-ratio:16/10;object-fit:cover;background:#000;display:block}
+.feature-card .demo-open{position:relative;display:block;width:100%;padding:0;border:0;background:#000;cursor:pointer;aspect-ratio:16/10}
+.feature-card .demo-open img{width:100%;height:100%;object-fit:cover;display:block;vertical-align:middle}
+.feature-card .demo-open::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at center,transparent 28%,rgba(0,0,0,.28) 100%);pointer-events:none}
+.feature-card .demo-open .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:3rem;height:3rem;border-radius:999px;background:rgba(15,20,25,.72);border:2px solid rgba(221,226,234,.85);display:grid;place-items:center;pointer-events:none;transition:transform .15s ease,background .15s ease}
+.feature-card .demo-open .play::before{content:"";display:block;margin-left:.15rem;border-style:solid;border-width:.55rem 0 .55rem .9rem;border-color:transparent transparent transparent #dde2ea}
+.feature-card .demo-open:hover .play,.feature-card .demo-open:focus-visible .play{transform:translate(-50%,-50%) scale(1.06);background:rgba(26,40,56,.9)}
+.feature-card .demo-open:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .feature-card h3{margin:.75rem 1rem .25rem;font-size:1.05rem}.feature-card p{margin:0 1rem 1rem;color:var(--muted);font-size:.95rem}
+.demo-lightbox{position:fixed;inset:0;z-index:80;display:none;align-items:center;justify-content:center;padding:1.25rem;background:rgba(5,8,12,.82);backdrop-filter:blur(4px)}
+.demo-lightbox.open{display:flex}
+.demo-lightbox .sheet{width:min(1100px,100%);background:#0a0e14;border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 18px 60px rgba(0,0,0,.45)}
+.demo-lightbox .bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.65rem 1rem;border-bottom:1px solid var(--border);color:var(--muted);font-size:.95rem}
+.demo-lightbox .bar .actions{display:flex;gap:.5rem;align-items:center}
+.demo-lightbox .bar a,.demo-lightbox .bar button{background:transparent;border:1px solid var(--border);color:var(--text);border-radius:8px;padding:.35rem .7rem;cursor:pointer;font:inherit;text-decoration:none}
+.demo-lightbox .bar a:hover,.demo-lightbox .bar button:hover{border-color:var(--accent);color:var(--accent)}
+.demo-lightbox video{width:100%;aspect-ratio:16/9;background:#000;display:block;max-height:min(78vh,720px)}
 .two-col{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
 .panel{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:1.25rem 1.35rem}
 .panel h3{margin:0 0 .5rem;font-size:1.1rem}.panel ul{margin:.5rem 0 0;padding-left:1.2rem;color:var(--muted)}
@@ -63,64 +77,84 @@ footer{text-align:center;color:var(--muted);padding:2rem;border-top:1px solid va
 
 <section>
 <h2>What you can make today</h2>
-<p class="lead">The everyday solid-modeling loop is already here: constrained sketches, classic features, direct edits, and a parametric history you can reopen and change.</p>
-<div class="grid">
+<p class="lead">The everyday solid-modeling loop is already here: constrained sketches, classic features, direct edits, and a parametric history you can reopen and change. Click a preview to watch the full demo.</p>
+<div class="grid" id="demo-grid">
 <article class="feature-card">
-<video poster="assets/screenshots/precision_plate.png" autoplay muted loop playsinline preload="metadata" aria-label="Plate with corner-snapped holes">
-<source src="assets/movies/precision_plate.webm" type="video/webm"/>
-</video>
+<button type="button" class="demo-open" data-demo="precision_plate" aria-label="Play demo: plate with corner-snapped holes">
+<img src="assets/screenshots/precision_plate.png" alt="" loading="lazy" width="1600" height="900"/>
+<span class="play" aria-hidden="true"></span>
+</button>
 <h3>Place hole… inset from corners</h3>
 <p>Size a plate, then Place hole… near a corner — magnets snap and inset by an amount inferred from Ø, thickness, and material.</p>
 </article>
 <article class="feature-card">
-<video poster="assets/screenshots/extrude_cylinder.png" autoplay muted loop playsinline preload="metadata" aria-label="Dimensioned circle extruded into a cylinder">
-<source src="assets/movies/extrude_cylinder.webm" type="video/webm"/>
-</video>
+<button type="button" class="demo-open" data-demo="extrude_cylinder" aria-label="Play demo: dimensioned circle extruded into a cylinder">
+<img src="assets/screenshots/extrude_cylinder.png" alt="" loading="lazy" width="1600" height="900"/>
+<span class="play" aria-hidden="true"></span>
+</button>
 <h3>Sketch → dimension → extrude</h3>
 <p>Draw closed profiles, drive them with dimensions, and extrude solid bodies — the core path from idea to part.</p>
 </article>
 <article class="feature-card">
-<video poster="assets/screenshots/revolve_washer.png" autoplay muted loop playsinline preload="metadata" aria-label="Washer profile revolved into a solid">
-<source src="assets/movies/revolve_washer.webm" type="video/webm"/>
-</video>
+<button type="button" class="demo-open" data-demo="revolve_washer" aria-label="Play demo: washer profile revolved into a solid">
+<img src="assets/screenshots/revolve_washer.png" alt="" loading="lazy" width="1600" height="900"/>
+<span class="play" aria-hidden="true"></span>
+</button>
 <h3>Revolve profiles into solids</h3>
 <p>Spin a sketch about an axis for washers, flanges, and other parts of revolution.</p>
 </article>
 <article class="feature-card">
-<video poster="assets/screenshots/path_merge_sweep.png" autoplay muted loop playsinline preload="metadata" aria-label="Profile swept along a path">
-<source src="assets/movies/path_merge_sweep.webm" type="video/webm"/>
-</video>
+<button type="button" class="demo-open" data-demo="path_merge_sweep" aria-label="Play demo: profile swept along a path">
+<img src="assets/screenshots/path_merge_sweep.png" alt="" loading="lazy" width="1600" height="900"/>
+<span class="play" aria-hidden="true"></span>
+</button>
 <h3>Sweep along a path</h3>
 <p>Combine sketch rails into a path, then sweep a profile into tubing and rails — or select profile + rail for a one-shot sweep.</p>
 </article>
 <article class="feature-card">
-<video poster="assets/screenshots/loft_guide_rail.png" autoplay muted loop playsinline preload="metadata" aria-label="Loft between profiles with a guide rail">
-<source src="assets/movies/loft_guide_rail.webm" type="video/webm"/>
-</video>
+<button type="button" class="demo-open" data-demo="loft_guide_rail" aria-label="Play demo: loft between profiles with a guide rail">
+<img src="assets/screenshots/loft_guide_rail.png" alt="" loading="lazy" width="1600" height="900"/>
+<span class="play" aria-hidden="true"></span>
+</button>
 <h3>Loft with guide rails</h3>
 <p>Blend between profiles and steer the transition with an open guide rail.</p>
 </article>
 <article class="feature-card">
-<video poster="assets/screenshots/sketch_tools.png" autoplay muted loop playsinline preload="metadata" aria-label="Sketch tools including spline and extend">
-<source src="assets/movies/sketch_tools.webm" type="video/webm"/>
-</video>
+<button type="button" class="demo-open" data-demo="sketch_tools" aria-label="Play demo: sketch tools including spline and extend">
+<img src="assets/screenshots/sketch_tools.png" alt="" loading="lazy" width="1600" height="900"/>
+<span class="play" aria-hidden="true"></span>
+</button>
 <h3>Full sketch toolkit</h3>
 <p>Lines, rectangles, circles, splines, trim, extend, construction geometry, and constraints — familiar drafting, not a toy canvas.</p>
 </article>
 <article class="feature-card">
-<video poster="assets/screenshots/sketch_edit_in_out.png" autoplay muted loop playsinline preload="metadata" aria-label="Reopening a sketch for parametric edits">
-<source src="assets/movies/sketch_edit_in_out.webm" type="video/webm"/>
-</video>
+<button type="button" class="demo-open" data-demo="sketch_edit_in_out" aria-label="Play demo: reopening a sketch for parametric edits">
+<img src="assets/screenshots/sketch_edit_in_out.png" alt="" loading="lazy" width="1600" height="900"/>
+<span class="play" aria-hidden="true"></span>
+</button>
 <h3>Edit features later</h3>
 <p>Leave a sketch, come back, change dimensions or geometry — the solid updates with the history.</p>
 </article>
 <article class="feature-card">
-<video poster="assets/screenshots/pliers_motion.png" autoplay muted loop playsinline preload="metadata" aria-label="Needle-nose pliers jaws rotating about a pin">
-<source src="assets/movies/pliers_motion.webm" type="video/webm"/>
-</video>
+<button type="button" class="demo-open" data-demo="pliers_motion" aria-label="Play demo: needle-nose pliers jaws rotating about a pin">
+<img src="assets/screenshots/pliers_motion.png" alt="" loading="lazy" width="1600" height="900"/>
+<span class="play" aria-hidden="true"></span>
+</button>
 <h3>Assemblies that move</h3>
 <p>Mate jaws to a pin with concentric + coincident — leftover revolute DOF lets you drag the pliers open and closed.</p>
 </article>
+</div>
+<div class="demo-lightbox" id="demo-lightbox" hidden>
+<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="demo-lightbox-title">
+<div class="bar">
+<span id="demo-lightbox-title">Demo</span>
+<div class="actions">
+<a id="demo-lightbox-open" href="#" target="_blank" rel="noopener">Open WebM</a>
+<button type="button" id="demo-lightbox-close">Close</button>
+</div>
+</div>
+<video id="demo-lightbox-video" controls playsinline preload="metadata"></video>
+</div>
 </div>
 <div class="panel" style="margin-top:1.5rem">
 <h3 style="margin-top:0">Fewer clicks than SolidWorks on a beginner part</h3>
@@ -262,17 +296,66 @@ Built with ❤️ by the Express Consortium<br/>
   var os = detectOS();
   var cta = document.getElementById("download-cta");
   var hint = document.getElementById("os-hint");
-  if (!cta) return;
-  var buttons = Array.prototype.slice.call(cta.querySelectorAll("[data-os]"));
-  buttons.forEach(function (btn) {
-    var match = os && btn.getAttribute("data-os") === os;
-    btn.className = "btn " + (match ? "btn-primary" : "btn-secondary");
-    if (match) cta.insertBefore(btn, cta.firstChild);
-  });
-  if (os && hint) {
-    hint.hidden = false;
-    hint.textContent = "Detected " + labels[os] + " — primary download highlighted.";
+  if (cta) {
+    var buttons = Array.prototype.slice.call(cta.querySelectorAll("[data-os]"));
+    buttons.forEach(function (btn) {
+      var match = os && btn.getAttribute("data-os") === os;
+      btn.className = "btn " + (match ? "btn-primary" : "btn-secondary");
+      if (match) cta.insertBefore(btn, cta.firstChild);
+    });
+    if (os && hint) {
+      hint.hidden = false;
+      hint.textContent = "Detected " + labels[os] + " — primary download highlighted.";
+    }
   }
+
+  // Full demo WebMs live on a mutable GitHub Release (not in Pages git).
+  var DEMO_BASE = "https://github.com/solidexpress/solidexpress.github.io/releases/download/demo-movies/";
+  var lightbox = document.getElementById("demo-lightbox");
+  var video = document.getElementById("demo-lightbox-video");
+  var titleEl = document.getElementById("demo-lightbox-title");
+  var closeBtn = document.getElementById("demo-lightbox-close");
+  var openLink = document.getElementById("demo-lightbox-open");
+  var lastFocus = null;
+
+  function closeDemo() {
+    if (!lightbox || !video) return;
+    video.pause();
+    video.removeAttribute("src");
+    video.load();
+    lightbox.classList.remove("open");
+    lightbox.hidden = true;
+    document.body.style.overflow = "";
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  function openDemo(btn) {
+    var id = btn.getAttribute("data-demo");
+    if (!id || !lightbox || !video) return;
+    var src = DEMO_BASE + id + ".webm";
+    lastFocus = btn;
+    titleEl.textContent = (btn.getAttribute("aria-label") || "Demo").replace(/^Play demo:\s*/i, "");
+    if (openLink) openLink.href = src;
+    video.src = src;
+    lightbox.hidden = false;
+    lightbox.classList.add("open");
+    document.body.style.overflow = "hidden";
+    video.play().catch(function () {});
+    if (closeBtn) closeBtn.focus();
+  }
+
+  document.querySelectorAll(".demo-open[data-demo]").forEach(function (btn) {
+    btn.addEventListener("click", function () { openDemo(btn); });
+  });
+  if (closeBtn) closeBtn.addEventListener("click", closeDemo);
+  if (lightbox) {
+    lightbox.addEventListener("click", function (e) {
+      if (e.target === lightbox) closeDemo();
+    });
+  }
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && lightbox && lightbox.classList.contains("open")) closeDemo();
+  });
 })();
 </script>
 </body>
