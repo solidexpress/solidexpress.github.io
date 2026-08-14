@@ -1,17 +1,24 @@
-# solidexpress.github.io
+# SolidExpress marketing site (canonical source)
 
-GitHub Pages marketing site for SolidExpress ([solid.express](https://solid.express)).
+This directory is the **canonical** source for [solid.express](https://solid.express).
+Deploy by syncing to the GitHub Pages repo:
+
+```bash
+# from the app repo
+scripts/sx-sync-website
+# then commit + push inside ../solidexpress.github.io
+```
 
 Demo preview posters live in `assets/screenshots/`. Full demo WebMs are on the
 [`demo-movies`](https://github.com/solidexpress/solidexpress.github.io/releases/tag/demo-movies)
-Release on this repo (not committed to git, and separate from app releases). Refresh from the app repo:
+Release on the Pages repo. Refresh from the app repo:
 
 ```bash
-cd ../solidexpress && make movies && make publish-demo-movies
-# then commit/push poster + HTML changes in this repo
+make movies && scripts/sx-publish-demo-movies
+scripts/sx-sync-website   # also copies ui_movie_manifest.json
 ```
 
-Store / listing URLs:
+## Download links (hard rule)
 
-- Privacy: https://solid.express/privacy.html
-- Support: https://solid.express/support.html (GitHub Issues)
+Every platform button must hydrate from **`/repos/solidexpress/solidexpress/releases/latest` only**.
+Never fall back to an older release when an asset is missing (that is how macOS used to keep serving `v0.0.1` while the page claimed a newer version). See `.cursor/rules/website-latest-release-downloads.mdc`.
