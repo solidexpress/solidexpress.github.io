@@ -48,6 +48,14 @@ h2{font-size:1.5rem;border-left:4px solid var(--accent);padding-left:.75rem;marg
 .roadmap h3{margin:0 0 .4rem;font-size:1.05rem}
 .roadmap p{margin:0;color:var(--muted);font-size:.95rem}
 .roadmap .enables{margin-top:.65rem;padding-top:.65rem;border-top:1px solid var(--border);color:var(--accent2);font-size:.9rem}
+
+.dl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1.15rem}
+.dl-card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:1.15rem 1.25rem;display:flex;flex-direction:column;gap:.45rem}
+.dl-card h3{margin:0;font-size:1.1rem}
+.dl-card p{margin:0;color:var(--muted);font-size:.92rem}
+.dl-card .cta{margin-top:.55rem}
+.dl-card.preferred{border-color:var(--accent)}
+.dl-meta{margin-top:.9rem;color:var(--muted);font-size:.92rem}
 footer{text-align:center;color:var(--muted);padding:2rem;border-top:1px solid var(--border);line-height:1.7}
 </style></head>
 <body>
@@ -63,16 +71,35 @@ footer{text-align:center;color:var(--muted);padding:2rem;border-top:1px solid va
 </nav>
 <main>
 <section id="download">
-<h2>Download v0.0.1</h2>
-<p class="lead">Ready-to-run builds for Linux, Windows, and macOS. Unsigned on Windows/macOS for early releases — Gatekeeper/SmartScreen may prompt; verify SHA256 checksums on the release page.</p>
-<div class="cta" id="download-cta">
-<a class="btn btn-primary" data-os="linux" href="https://github.com/solidexpress/solidexpress/releases/download/v0.0.1/SolidExpress-0.0.1-linux-x86_64.tar.gz">Linux (.tar.gz)</a>
-<a class="btn btn-primary" data-os="windows" href="https://github.com/solidexpress/solidexpress/releases/download/v0.0.1/SolidExpress-0.0.1-windows-x86_64.zip">Windows (.zip)</a>
-<a class="btn btn-primary" data-os="macos" href="https://github.com/solidexpress/solidexpress/releases/download/v0.0.1/SolidExpress-0.0.1-macos.zip">macOS (.zip)</a>
-<a class="btn btn-secondary" href="https://github.com/solidexpress/solidexpress/releases/tag/v0.0.1">All assets &amp; checksums</a>
-<a class="btn btn-secondary" href="https://github.com/solidexpress/solidexpress">Source</a>
+<h2>Download <span id="dl-version">v0.0.1</span></h2>
+<p class="lead">Installer-ready builds for macOS, Windows, and Linux. Prefer the DMG or Setup.exe when you just want to run it. Checksums live on the release page.</p>
+<div class="dl-grid" id="download-cta">
+<article class="dl-card" data-os="macos">
+<h3>macOS</h3>
+<p>Universal disk image. Open the DMG and drag SolidExpress into Applications.</p>
+<div class="cta">
+<a class="btn btn-primary" data-kind="macos-dmg" href="https://github.com/solidexpress/solidexpress/releases/download/v0.0.1/SolidExpress-0.0.1-macos.dmg">Download DMG</a>
+<a class="btn btn-secondary" data-kind="macos-zip" href="https://github.com/solidexpress/solidexpress/releases/download/v0.0.1/SolidExpress-0.0.1-macos.zip">.zip</a>
+</div>
+</article>
+<article class="dl-card" data-os="windows">
+<h3>Windows</h3>
+<p>64-bit installer. SmartScreen may prompt on early releases; checksums are on the release page.</p>
+<div class="cta">
+<a class="btn btn-primary" data-kind="windows-exe" href="https://github.com/solidexpress/solidexpress/releases/download/v0.0.1/SolidExpress-0.0.1-x64-setup.exe">Download Setup.exe</a>
+<a class="btn btn-secondary" data-kind="windows-zip" href="https://github.com/solidexpress/solidexpress/releases/download/v0.0.1/SolidExpress-0.0.1-windows-x86_64.zip">.zip</a>
+</div>
+</article>
+<article class="dl-card" data-os="linux">
+<h3>Linux</h3>
+<p>x86_64 tarball. Extract and run <code>SolidExpress</code> from the folder.</p>
+<div class="cta">
+<a class="btn btn-primary" data-kind="linux-tgz" href="https://github.com/solidexpress/solidexpress/releases/download/v0.0.1/SolidExpress-0.0.1-linux-x86_64.tar.gz">Download .tar.gz</a>
+</div>
+</article>
 </div>
 <p class="os-hint" id="os-hint" hidden></p>
+<p class="dl-meta"><a id="dl-all" href="https://github.com/solidexpress/solidexpress/releases/tag/v0.0.1">All assets &amp; checksums</a> · <a href="https://github.com/solidexpress/solidexpress">Source</a></p>
 </section>
 
 <section>
@@ -170,7 +197,7 @@ footer{text-align:center;color:var(--muted);padding:2rem;border-top:1px solid va
 <section>
 <h2>It is your software</h2>
 <p class="lead">SolidExpress is open-source CAD. Study it, change it, redistribute it, and keep your models in formats the rest of the industry already speaks. No subscription gate between you and the kernel. No proprietary dead-end for the parts you design.</p>
-<p><span class="pill">v0.0.1 binaries available</span></p>
+<p><span class="pill" id="dl-pill">v0.0.1 binaries available</span></p>
 </section>
 
 <section>
@@ -228,8 +255,8 @@ footer{text-align:center;color:var(--muted);padding:2rem;border-top:1px solid va
 <div class="roadmap">
 <article>
 <h3>Ready-to-run builds</h3>
-<p>Installer-ready packages for Linux, macOS, and Windows so you can open SolidExpress without compiling from source.</p>
-<p class="enables">Enables: try it in minutes, share it with a shop or classroom, and keep a known-good desktop release on every machine.</p>
+<p>DMG, Setup.exe, and a Linux tarball so you can open SolidExpress without compiling from source.</p>
+<p class="enables">Available now in the download row above. Share a known-good desktop release with a shop or classroom.</p>
 </article>
 <article>
 <h3>Assemblies &amp; mates</h3>
@@ -293,21 +320,63 @@ Built with ❤️ by the Express Consortium<br/>
     if (/Linux/i.test(platform) || /Linux/i.test(ua) || /X11/i.test(ua)) return "linux";
     return null;
   }
-  var os = detectOS();
-  var cta = document.getElementById("download-cta");
-  var hint = document.getElementById("os-hint");
-  if (cta) {
-    var buttons = Array.prototype.slice.call(cta.querySelectorAll("[data-os]"));
-    buttons.forEach(function (btn) {
-      var match = os && btn.getAttribute("data-os") === os;
-      btn.className = "btn " + (match ? "btn-primary" : "btn-secondary");
-      if (match) cta.insertBefore(btn, cta.firstChild);
+  function highlightOS() {
+    var os = detectOS();
+    var cta = document.getElementById("download-cta");
+    var hint = document.getElementById("os-hint");
+    if (!cta) return;
+    var cards = Array.prototype.slice.call(cta.querySelectorAll(".dl-card[data-os]"));
+    cards.forEach(function (card) {
+      var match = os && card.getAttribute("data-os") === os;
+      card.classList.toggle("preferred", !!match);
+      if (match) cta.insertBefore(card, cta.firstChild);
     });
     if (os && hint) {
       hint.hidden = false;
-      hint.textContent = "Detected " + labels[os] + " — primary download highlighted.";
+      hint.textContent = "Detected " + labels[os] + ". That download is first.";
     }
   }
+  function pickAsset(assets, re) {
+    for (var i = 0; i < assets.length; i++) {
+      if (re.test(assets[i].name) && !/\.sha256$/.test(assets[i].name)) return assets[i];
+    }
+    return null;
+  }
+  function setHref(kind, asset) {
+    var el = document.querySelector("[data-kind='" + kind + "']");
+    if (el && asset) el.href = asset.browser_download_url;
+  }
+  function hydrateDownloads() {
+    fetch("https://api.github.com/repos/solidexpress/solidexpress/releases")
+      .then(function (r) { return r.json(); })
+      .then(function (releases) {
+        if (!releases || !releases.length) return;
+        var rel = null;
+        for (var i = 0; i < releases.length; i++) {
+          var r = releases[i];
+          if (r.draft || r.prerelease || !r.assets) continue;
+          var hasBin = r.assets.some(function (a) {
+            return /\.(dmg|exe|tar\.gz)$/.test(a.name) && !/\.sha256$/.test(a.name);
+          });
+          if (hasBin) { rel = r; break; }
+        }
+        if (!rel) return;
+        setHref("macos-dmg", pickAsset(rel.assets, /\.dmg$/));
+        setHref("macos-zip", pickAsset(rel.assets, /macos\.zip$/));
+        setHref("windows-exe", pickAsset(rel.assets, /setup\.exe$/));
+        setHref("windows-zip", pickAsset(rel.assets, /windows.*\.zip$/));
+        setHref("linux-tgz", pickAsset(rel.assets, /\.tar\.gz$/));
+        var ver = document.getElementById("dl-version");
+        if (ver) ver.textContent = rel.tag_name;
+        var all = document.getElementById("dl-all");
+        if (all) all.href = rel.html_url;
+        var pill = document.getElementById("dl-pill");
+        if (pill) pill.textContent = rel.tag_name + " binaries available";
+      })
+      .catch(function () {});
+  }
+  highlightOS();
+  hydrateDownloads();
 
   // Full demo WebMs live on a mutable GitHub Release (not in Pages git).
   var DEMO_BASE = "https://github.com/solidexpress/solidexpress.github.io/releases/download/demo-movies/";
